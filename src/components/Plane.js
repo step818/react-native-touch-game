@@ -1,30 +1,41 @@
+import { Animated, Image } from "react-native";
+import React, { Component } from "react";
 import { array, object, string } from "prop-types";
 
-import { Image } from "react-native";
 import Matter from "matter-js";
-import React from "react";
 
-const airplane = require("../../assets/airplane.png");
+const airplane = require("../../assets/airplane2.png");
 
-const Plane = (props) => {
-  const width = props.size[0];
-  const height = props.size[1];
-  const x = props.body.position.x - width / 2;
-  const y = props.body.position.y - height / 2;
-  return (
-    <Image
-      style={{
-        position: "absolute",
-        left: x,
-        top: y,
-        width: width,
-        height: height,
-      }}
-      resizeMode="stretch"
-      source={airplane}
-    />
-  );
-};
+class Plane extends Component {
+  constructor(props) {
+    super(props);
+    this.animatedValue = new Animated.Value(this.props.body.velocity.y);
+  }
+  render() {
+    const width = props.size[0];
+    const height = props.size[1];
+    const x = props.body.position.x - width / 2;
+    const y = props.body.position.y - height / 2;
+    this.animatedValue.setValue.interpolate({
+      inputRange: [-10, 0, 10, 20],
+      outpurRange: ["-30deg", "10deg", "20deg", "45deg"],
+      extrapolate: "clamp",
+    });
+    return (
+      <Animated.Image
+        style={{
+          position: "absolute",
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+        }}
+        resizeMode="stretch"
+        source={airplane}
+      />
+    );
+  }
+}
 
 export default (world, color, pos, size) => {
   const initialPlane = Matter.Bodies.rectangle(
