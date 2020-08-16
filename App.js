@@ -1,5 +1,5 @@
-import { LogBox, StyleSheet, Text, View } from "react-native";
 import React, { PureComponent } from "react";
+import { StyleSheet, View } from "react-native";
 
 import Entities from "./src/entities";
 import { GameEngine } from "react-native-game-engine";
@@ -26,10 +26,8 @@ export default class App extends PureComponent {
           style={styles.gameContainer}
           running={this.state.running}
           systems={Systems}
-          entities={this.entities}
-        >
-          <StatusBar style="auto" />
-        </GameEngine>
+          entities={Entities()}
+        ></GameEngine>
       </View>
     );
   }

@@ -10,11 +10,11 @@ export default (restart) => {
 
   let engine = Matter.Engine.create({ enableSleeping: false });
   let world = engine.world;
-  world.gravity.y = 0.25;
+  world.gravity.y = 0.05;
   const boxSize = 50;
 
   return {
-    physics: { engine, engine, world, world },
+    physics: { engine: engine, world: world },
     Plane: Plane(
       world,
       "pink",
