@@ -4,7 +4,7 @@ import { array, object, string } from "prop-types";
 
 import Matter from "matter-js";
 
-const airplane = require("../../assets/airplane2.png");
+const airplane = require("../../assets/airplane.png");
 
 class Plane extends Component {
   constructor(props) {
