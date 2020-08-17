@@ -15,7 +15,7 @@ const UpdateObstacle = (entities, { time, dispatch }) => {
       entities["Obstace" + i].scored = false;
       Matter.Body.setPosition(entities["Obstacle" + i].body, {
         x: width * 2 - Constants.TOP_PIPE_WIDTH / 2,
-        y: getRandom(heightRatio * 100, heightRatioin * 300),
+        y: getRandom(heightRatio * 100, heightRatio * 300),
       });
     } else if (
       entities["Obstacle" + i].type === "bottom" &&

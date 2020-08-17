@@ -1,12 +1,11 @@
 import React, { PureComponent } from "react";
-import { StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
 import { height, width } from "./src/utils/styleSheet";
 
 import Entities from "./src/entities";
 import FastImage from "react-native-fast-image";
 import { GameEngine } from "react-native-game-engine";
 import GameOver from "./src/components/GameOver";
-import { StatusBar } from "expo-status-bar";
 import Systems from "./src/systems";
 
 const backgroundImage = require("./assets/nature.jpg");
@@ -36,10 +35,11 @@ export default class App extends PureComponent {
 
   restart = () => {
     this.setState({ running: true, score: 0 });
-    this.gameEngine.UNSAFE_componentWillUpdate(Entities());
+    this.gameEngine.swap(Entities());
   };
 
   render() {
+    const { state } = this;
     return (
       <View style={styles.container}>
         <FastImage style={styles.imageBackground} source={backgroundImage} />
