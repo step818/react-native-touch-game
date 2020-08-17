@@ -4,6 +4,10 @@ import Matter from "matter-js";
 import React from "react";
 import { View } from "react-native";
 
+// import FastImage from "react-native-fast-image";
+
+// const clouds = require("../../assets/clouds.png");
+
 const Ceiling = (props) => {
   const width = props.size[0];
   const height = props.size[1];
@@ -18,7 +22,7 @@ const Ceiling = (props) => {
           top: y,
           width: width,
           height: height,
-          backgroundColor: props.color || "pink",
+          backgroundColor: "gray",
         },
       ]}
     />
@@ -41,4 +45,10 @@ export default (world, color, pos, size) => {
     color: color,
     renderer: <Ceiling />,
   };
+};
+
+Ceiling.propTypes = {
+  size: array,
+  body: object,
+  color: string,
 };

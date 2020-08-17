@@ -21,21 +21,21 @@ export default (restart) => {
 
   let engine = Matter.Engine.create({ enableSleeping: false });
   let world = engine.world;
-  world.gravity.y = 0.15;
+  world.gravity.y = 0.18;
 
   return {
     physics: { engine: engine, world: world },
     Ceiling: Ceiling(
       world,
       "white",
-      { x: width / 2, y: -heightRatio * 120 },
-      { height: heightRatio * 120, width: width }
+      { x: width / 2, y: heightRatio * 1 },
+      { height: heightRatio * 60, width: widthRatio * 350 }
     ),
     Plane: Plane(
       world,
       "pink",
-      { x: 220, y: 400 },
-      { height: heightRatio * 90, width: width }
+      { x: width / 2, y: height / 2 },
+      { height: heightRatio * 50, width: widthRatio * 70 }
     ),
     Floor: Floor(
       world,
@@ -47,7 +47,7 @@ export default (restart) => {
       world,
       "top",
       {
-        x: 500 * 2 - Constants.TOP_PIPE_WIDTH / 2,
+        x: width * 2 - Constants.TOP_PIPE_WIDTH / 2,
         y: getRandom(heightRatio * 100, heightRatio * 300),
       },
       { height: topObstacleHeight, width: Constants.TOP_PIPE_WIDTH }

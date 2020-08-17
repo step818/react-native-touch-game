@@ -1,11 +1,12 @@
 import { array, object, string } from "prop-types";
 
-import FastImage from "react-native-fast-image";
 import Matter from "matter-js";
 import React from "react";
 import { View } from "react-native";
 
-const rocket = require("../../assets/rocket.png");
+// import FastImage from "react-native-fast-image";
+
+// const rocket = require("../../assets/rocket.png");
 
 const Obstacle = (props) => {
   const width = props.size[0];
@@ -14,7 +15,7 @@ const Obstacle = (props) => {
   const y = props.body.position.y - height / 2;
 
   return (
-    <FastImage
+    <View
       style={[
         {
           position: "absolute",
@@ -23,10 +24,9 @@ const Obstacle = (props) => {
           width: width,
           borderRadius: 20,
           height: height,
+          backgroundColor: "red",
         },
       ]}
-      source={rocket}
-      resizeMode={FastImage.resizeMode.stretch}
     />
   );
 };

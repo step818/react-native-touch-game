@@ -6,7 +6,7 @@ import {
   View,
 } from "react-native";
 import React, { PureComponent } from "react";
-import { heightRatio, widthRatio } from "../utils/styleGuide";
+import { heightRatio, widthRatio } from "../utils/styleSheet";
 
 import styleGuide from "../utils/styleGuide";
 
@@ -25,8 +25,12 @@ export default class App extends PureComponent {
   animate() {
     this.animatedValue.setValue(0);
     this.animatedValue2.setValue(0);
-    Animated.paralletl([
+    Animated.parallel([
       Animated.timing(this.animatedValue, {
+        toValue: 1,
+        duration: 1000,
+      }),
+      Animated.timing(this.animatedValue2, {
         toValue: 1,
         duration: 1000,
       }),
@@ -74,5 +78,36 @@ const styles = StyleSheet.create({
   animatedCard: {
     width: widthRatio * 260,
     height: heightRatio * 200,
+    padding: heightRatio * 10,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 5,
+    ...styleGuide.bigShadow,
+  },
+  gameOverText: {
+    fontSize: heightRatio * 30,
+    fontWeight: "bold",
+    color: "grey",
+    marginBottom: heightRatio * 20,
+    // fontFamily: "crackman-regular",
+  },
+  container: {
+    height: heightRatio * 30,
+    width: widthRatio * 100,
+    borderRadius: 6,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "transparent",
+    backgroundColor: styleGuide.primaryColor,
+  },
+  shadow: {
+    ...styleGuide.bigShadow,
+  },
+  textStyle: {
+    color: "white",
+    fontSize: 14,
+    fontWeight: "500",
   },
 });

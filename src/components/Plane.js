@@ -12,13 +12,14 @@ class Plane extends Component {
     this.animatedValue = new Animated.Value(this.props.body.velocity.y);
   }
   render() {
-    const width = props.size[0];
-    const height = props.size[1];
-    const x = props.body.position.x - width / 2;
-    const y = props.body.position.y - height / 2;
-    this.animatedValue.setValue.interpolate({
+    const width = this.props.size[0];
+    const height = this.props.size[1];
+    const x = this.props.body.position.x - width / 2;
+    const y = this.props.body.position.y - height / 2;
+    this.animatedValue.setValue(this.props.body.velocity.y);
+    let rotation = this.animatedValue.interpolate({
       inputRange: [-10, 0, 10, 20],
-      outpurRange: ["-30deg", "10deg", "20deg", "45deg"],
+      outputRange: ["-30deg", "10deg", "20deg", "45deg"],
       extrapolate: "clamp",
     });
     return (
@@ -29,6 +30,7 @@ class Plane extends Component {
           top: y,
           width: width,
           height: height,
+          transform: [{ rotate: rotation }],
         }}
         resizeMode="stretch"
         source={airplane}

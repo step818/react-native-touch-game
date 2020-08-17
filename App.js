@@ -3,12 +3,12 @@ import { StatusBar, StyleSheet, Text, View } from "react-native";
 import { height, width } from "./src/utils/styleSheet";
 
 import Entities from "./src/entities";
-import FastImage from "react-native-fast-image";
+// import FastImage from "react-native-fast-image";
 import { GameEngine } from "react-native-game-engine";
 import GameOver from "./src/components/GameOver";
 import Systems from "./src/systems";
 
-const backgroundImage = require("./assets/nature.jpg");
+// const backgroundImage = require("./assets/nature.jpg");
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -42,7 +42,6 @@ export default class App extends PureComponent {
     const { state } = this;
     return (
       <View style={styles.container}>
-        <FastImage style={styles.imageBackground} source={backgroundImage} />
         <GameEngine
           ref={(ref) => {
             this.gameEngine = ref;
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     top: 100,
-    fontFamily: "crackman-regular",
+    // fontFamily: "crackman-regular",
   },
   imageBackground: {
     width: width,
