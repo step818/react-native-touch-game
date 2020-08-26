@@ -50,6 +50,7 @@ export default (restart) => {
         x: width * 2 - Constants.TOP_PIPE_WIDTH / 2,
         y: getRandom(heightRatio * 100, heightRatio * 300),
       },
+      // height L
       { height: topObstacleHeight, width: Constants.TOP_PIPE_WIDTH }
     ),
     Obstacle2: Obstacle(
@@ -57,7 +58,7 @@ export default (restart) => {
       "bottom",
       {
         x: width * 3 - Constants.BOTTOM_PIPE_WIDTH / 2,
-        y: getRandom(heightRatio * 300, heightRatio * 500),
+        y: getRandom(heightRatio * 300, heightRatio * 600),
       },
       { height: bottomObstacleHeight, width: Constants.BOTTOM_PIPE_WIDTH }
     ),
